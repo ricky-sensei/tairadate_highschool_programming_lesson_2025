@@ -1,3 +1,8 @@
+---
+title: day1 Pythonの基礎①
+permalink: /day1/
+---
+
 # day1 Pythonの基礎①
 ## 講師・アシスタント紹介
 
