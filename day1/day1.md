@@ -9,7 +9,7 @@ permalink: /day1/
 
 ### 講師:吉田 力(リッキー)
 <div style="display: flex; align-items: center; gap: 8px;"><img src="./img/ricky_icon.png" alt="リッキーのアイコン" style="width:40px; height:40px; border-radius: 50%">
-サルビアの向かい、雑貨屋HARENOHIのとなりのようわからんあそこでプログラミング教室とかやってる人。ゲームサークルとかマイクラ部とかやってるので、見かけたら声かけてね。</div><br>
+8ackathon(ハッカソン)代表。プログラミング教室「アクセルキャンプ」代表。サルビアの向かい、雑貨屋HARENOHIのとなりのようわからんあそこでプログラミング教室とかやってる人。ゲームサークルとかマイクラ部とかやってるので、見かけたら声かけてね。</div><br>
 
 ### アシスタント① 大垣 ゆうき(ガッキー)
 <div style="display: flex; align-items: center; gap: 8px;">
@@ -154,13 +154,15 @@ permalink: /day1/
       国語80点、数学50点、英語が70点として、この三教科の平均点を求めよ
       ```
       <details>
-      <summary>解答例<summary>
-      ```python
-        kokugo = 80
-        suugaku = 50
-        eigo = 70
-        print((kokugo + suugaku + eigo) / 3)
-      ```
+      <summary>解答例</summary>
+      
+      <pre><code class="language-python">
+      kokugo = 80
+      suugaku = 50
+      eigo = 70
+      heikin = (kokugo + suugaku + eigo) / 3
+      print(heikin)
+      </code></pre>
       </details>
 
 
