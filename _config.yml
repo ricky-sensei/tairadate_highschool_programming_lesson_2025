@@ -1,0 +1,9 @@
+# JekyllのMarkdownパーサーとしてkramdownを使用
+markdown: kramdown
+
+# kramdownの設定: GFM（GitHub Flavored Markdown）を有効にする
+kramdown:
+  input: GFM
+  # GitHub Pagesでは必要ないかもしれませんが、互換性向上のために入れておくと安心です。
+  # 表(テーブル)の表示に必要な拡張を有効にします。
+  hard_wrap: false
