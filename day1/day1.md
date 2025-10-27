@@ -79,11 +79,11 @@ permalink: /day1/
           <td>サーバーサイドのWeb開発に特化しており、手軽に動的なWebサイトを構築できます。</td>
       </tr>
 
-      <tr>
+      <!-- <tr>
           <td>Swift</td>
           <td>iOS/macOSアプリ開発</td>
           <td>Apple製品（iPhone, iPad, Mac）向けのネイティブアプリ開発に使われる言語です。安全性が高く、モダンな設計です。</td>
-      </tr>
+      </tr> -->
       </table><br>
 
             
