@@ -223,6 +223,7 @@ permalink: /day1/
   - [Pythonインストール：windowsの場合](https://prog-8.com/docs/python-env-win)
   - [Pythonインストール：macの場合](https://prog-8.com/docs/python-env)
   - [vSCodeのインストール：win / mac](https://jitera.com/ja/insights/70959)
+  - [インストールしなくてもお試してpythonを動かせるサイト](https://paiza.io/ja/projects/new)
   osによってバージョンが少し違ったりする場合があるので、もしわからないことがあったらリッキーたちに聞気にきてください。
 
 
