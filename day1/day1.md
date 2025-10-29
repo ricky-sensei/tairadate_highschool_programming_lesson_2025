@@ -8,25 +8,31 @@ permalink: /day1/
 ## 講師・アシスタント紹介
 
 ### 講師:吉田 力(リッキー)
-<div style="display: flex; align-items: center; gap: 8px;"><img src="./img/ricky_icon.png" alt="リッキーのアイコン" style="width:40px; height:40px; border-radius: 50%">
+<div style="display: flex; align-items: center; gap: 8px;"><img src="./img/ricky_icon.png" alt="リッキーのアイコン" style="width:80px; height:80px; border-radius: 50%">
 8ackathon(ハッカソン)代表。プログラミング教室「アクセルキャンプ」代表。サルビアの向かい、雑貨屋HARENOHIのとなりのようわからんあそこでプログラミング教室とかやってる人。ゲームサークルとかマイクラ部とかやってるので、見かけたら声かけてね。</div><br>
 
 ### アシスタント① 大垣 ゆうき(ガッキー)
+
 <div style="display: flex; align-items: center; gap: 8px;">
-<img src="./img/ricky_icon.png" alt="リッキーのアイコン" style="width:40px; height:40px; border-radius: 50%">
-サルビアの向かい、雑貨屋HARENOHIのとなりのようわからんあそこでプログラミング教室とかやってる人。ゲームサークルとかマイクラ部とかやってるので、見かけたら声かけてね。
+<img src="./img/gakki.png" alt="リッキーのアイコン" style="width:80px; height:80px; border-radius: 50%">
+中国語ペラペラの謎の関西人、ガッキーです。
+大更らへんに生息してます。
+去年まで皆さんと同じようにプログラミング初心者だったので、難しい！とかわからない！とかめちゃくちゃ気持ちわかります！
+プログラミングだけじゃなくて関西の事も中国の事も何でも聞いてね！
 </div><br>
 
 ### アシスタント② 沖野 省吾(オッキー)
 <div style="display: flex; align-items: center; gap: 8px;">
-<img src="./img/ricky_icon.png" alt="リッキーのアイコン" style="width:40px; height:40px; border-radius: 50%">
-サルビアの向かい、雑貨屋HARENOHIのとなりのようわからんあそこでプログラミング教室とかやってる人。ゲームサークルとかマイクラ部とかやってるので、見かけたら声かけてね。
+<img src="./img/okki.png" alt="リッキーのアイコン" style="width:80px; height:80px; border-radius: 50%">
+去年までピチピチの大学生だった“おっきー”です。
+みんなと一緒に楽しくゲームを作っていけたら嬉しいです！
+わからないことがあったら気軽に声かけてね！
 </div><br>
 
 ## 八幡平市起業志民プロジェクト「スパルタキャンプ」事業紹介
 
 ## プログラミングについて
-  - ### プログラミングってなんだろう
+  - ### プログラミング = 翻訳 
     プログラミングは、コンピュータと人間がコミュニケーションを取るための手法のこと。
     人間同士でコミュニケーションを取る場合、言語や文字を用いて行うけど、それと同じで、人間がコンピュータにやってもらいたいことを伝えたりするときに『言語』を使う。
     でもちょっと困ったことに、コンピュータは基本的に『機械語(=マシン語)』という、数字の0と1(2進数)だけで表される言語でのみ、物事を理解するしくみになってる。流石に人間がその機械語で指示を出したりするのは大変だから、別の方法が必要になってくる。
