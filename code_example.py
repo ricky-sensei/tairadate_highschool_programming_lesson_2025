@@ -1,1 +1,2 @@
-print("Hello World!")
+if (True == 1):
+    print("おんなじ!")
