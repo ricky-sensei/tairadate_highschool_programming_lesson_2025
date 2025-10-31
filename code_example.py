@@ -1,2 +1,5 @@
-if (True == 1):
-    print("おんなじ!")
+def square(hen):
+  menseki = hen ** 2
+  return menseki
+
+print(square(5))
