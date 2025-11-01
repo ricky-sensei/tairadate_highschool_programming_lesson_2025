@@ -159,7 +159,7 @@ for i in range(100):
     print("LINEを送信")
 ```
 
-<details　markdown="1">
+<details open　markdown="1">
 <summary>　参考：i とか range とかって何なのよ</summary>
 このコードを動かしてみよう
 ```python
