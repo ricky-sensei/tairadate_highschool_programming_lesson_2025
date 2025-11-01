@@ -159,26 +159,23 @@ for i in range(100):
     print("LINEを送信")
 ```
 
-<details>
+<details　markdown="1">
 <summary>　参考：i とか range とかって何なのよ</summary>
 このコードを動かしてみよう
-<pre>
-<code class="lanbuage-python">
+```python
 for i in range(10):
     print(i)
-</code>
-</pre>
+```
+
 実行結果↓
-<pre>
-<code class="lanbuage-python">
+
+```python
 0
 1
 2
 3
 ...(省略)
 10
-</code>
-</pre>
 
 range(10)とすると、０から９までの数字データのかたまり（配列といいます）が入って、for文といっしょに使うことで、処理中にその塊に入っているデータに順番にアクセスしていく感じ。０から９だから、全部で１０回の繰り返しになる、てこと。iという文字に、繰り返しごとにデータが順番に入っていく感じ。ここの文字は別にiである必要はなくて、自由に名前をつけられる。
 配列には他にも「リスト」などの種類があって、こっちは数字だけじゃなくて文字も扱える。
