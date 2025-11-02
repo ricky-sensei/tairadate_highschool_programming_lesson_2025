@@ -391,7 +391,7 @@ int(数字に変更したい文字)
 <ヒント②>
 時間によって挨拶の内容を変える　＝　「もし」時間が◯時から◯時の間だったら・・・
 
-<details>
+<details open markdown="1">
 <summary>解答例</summary>
 ```python
 name = input("お名前は？：")
