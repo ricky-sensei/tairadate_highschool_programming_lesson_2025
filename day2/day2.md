@@ -221,56 +221,54 @@ print("ゆるしてやろう")
 
 ここでもインデントが重要で、インデントされている2つの処理が繰り返し実行される処理、インデントされていない print("ゆるしてやろう") の部分は、繰り返し=while文が終了したあとに実行されることがわかる。
 
-<details>
+<details open markdown="1>
 <summary>
 参考①True(トゥルー)とFalse(フォルス)
 </summary>
 試しにこのコードを実行してみよう。
-<pre><code class='language-python'>
+```python
 ricky = "かっこいい"
-print(ricky == "かっこいい")</code>
-</pre>
+print(ricky == "かっこいい")
+```
 
 実行結果
-<code>True</code>
+```
+True
+```
 True : 正しい
 pythonも認めざるを得ないかっこよさ。
 冗談はさておき、これは `ricky という変数と "かっこいい" という文字データは同じ` という条件が「正しい」ので、Trueという結果が帰ってきている感じ。
 逆に
-<pre>
-<code class='language-python'>
+```python
 ricky = "かっこいい"
 print(ricky == "ブサイク")
-</code>
-</pre>
+```
 コレを実行してみると
-<code>False</code>
+```
+False
+```
 という結果がでます。(False=フォルス:間違い)
 
 
 今まで出てきたif文やwhile文は、「条件」が「TrueかFalseか」を判定しているわけ。例えば
-<pre>
-<code class='language-python'>
+```python
 if ricky == "イケメン":
     print("わかるー")
-</code>
-</pre>
+```
 というif文は、`ricky == "イケメン`という条件がTrueのときに「わかるー」とprintする、という感じになる。ちなみに、パソコン内部的にはTrueは1、Falseは0として扱われるので、最初に出てきた「パソコンは0と1だけでデータを処理している」っていう話とつながってきたりする。試しにこのコードを実行すると、「おんなじ!」と出力される。
-<pre>
-<code class='language-python'>
+```python
 if (True == 1):
-    print("おんなじ!")</code>
-</pre>
+    print("おんなじ!")
+```
 </details>
 
-<details>
+<details open markdown="1">
 <summary>参考②無限ループ</summary>
 ゲームが起動中にずーっと同じ処理を繰り返したい場合などによく使われる手法で、無限ループというのがある。たとえばこんなコード(実行する場合は、必ず近くに詳しい人がいるときにやってください。やりすぎるとパソコンに余計な負担をかけてしまうことがあります。)
-<pre>
-<code class='language-python'>
+```python
 while True:
-    print("リッキーかっこいい")</code>
-</pre>
+    print("リッキーかっこいい")
+```
 無限にリッキーかっこいいとprintするという非常に正しいコードになってる。
 ループを抜けたい場合はCtrl + C で終了できる。
 
@@ -284,8 +282,7 @@ while True:
 以下のコードは、for文などの繰り返しと違うところは、回数や条件を指定できない代わりに、`引数`というシステムを使うと、同じ処理を繰り返すだけではなく、`同じ「ような」`処理を繰り返し行うことができる。書き方の説明の前に、実際に関数をつかって書かれたコードを見てみよう、
 以下の２つのコードは、どちらも正方形の面積を求めるプログラム何だけど、違いを見てみよう。
 - ### パターン①：引数を使わないパターン
-  <pre>
-  <code class='language-python'>
+  ```python
   def square():
     hen_length = 5
     menseki = hen_length ** 2
@@ -293,28 +290,26 @@ while True:
   
   print(square())
   print(square())
-  print(square())</code>
-  </pre>
+  print(square())
+  ```
   このコードを実行すると、こんな感じで、print(square())を実行するたびに一辺の長さが５の正方形の面積を求めることができるぜ！なんて便利な関数なんだ！
-  <pre>
-  <code class='language-python'>
+  ```
   25
   25
-  25</code>
-  </pre>
+  25
+  ```
 
 - ### パターン②：引数を使うパターン
   続いて、引数を使うパターンがこっち
-  <pre>
-  <code class='language-python'>
+  ```python
   def square(hen):
     menseki = hen ** 2
     return menseki
   
   print(square(5))
   print(square(6))
-  print(square(7))</code>
-  </pre>
+  print(square(7))
+  ```
   実行すると、それぞれ１辺が５，６，７の正方形の面積をprintしていることがわかる。これで、**同じ処理を、条件を変えて**実行することができるようになったわけだ
   
 
