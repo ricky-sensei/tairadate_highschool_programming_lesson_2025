@@ -134,7 +134,7 @@ pyxelには線を引いたり、四角や三角などの図形を描いたりす
   <br>
   ![色](img/image-19.png)
   <br>
-  「え？１６色だけ？」って思ったそこのアナタ！余談だけど、昔のゲームボーイとかは、４段階の濃さの黒（無色・薄い・ちょっと濃い・濃い）の２色だけで、ポケモン（当時は１５１匹）を表現して描き分けていたって思うと、ヤバくない？
+  「え？１６色だけ？」って思ったそこのアナタ！余談だけど、昔のゲームボーイとかは、４段階の濃さの黒（無色・薄い・ちょっと濃い・濃い）だけで、ポケモン（当時は１５１匹）を表現して描き分けていたって思うと、ヤバくない？
   <br>
   ![昔のポケモン](img/image%20copy.png)
   <br>
@@ -308,7 +308,7 @@ pyxel editorは、pyxelのゲーム制作で必要になる画像や音楽を自
   イメージバングは、ドット絵を入れておけるところ。一つのpyxresファイルにつき、3つの画像をいれることができるよ。
   - #### ドット絵（＝ピクセルアート）を書くコツ
     桜井政博のゲームをつくるには「ドット絵の初歩的な話」
-    <iframe width="50%"  src="https://www.youtube.com/embed/-t2Y09ns0IY?si=ZbXgCSE0VshxJHcL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe style="width: 50vw; height: calc(50vw * 0.75);" src="https://www.youtube.com/embed/-t2Y09ns0IY?si=ZbXgCSE0VshxJHcL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   <br>
 
   - #### イメージエディタの画面構成
