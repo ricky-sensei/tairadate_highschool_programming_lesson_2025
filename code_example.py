@@ -1,27 +1,18 @@
 import pyxel
 
-# pyxelを初期化：画面のサイズを２００ｘ２００ピクセルに設定
-pyxel.init(200, 200)
-
-# 四角に関する情報を定義
-rect_info = {
-    "x": 10,
-    "y": 10,
-    "w": 100,
-    "h": 100,
-    "col": 7
+character_info = {
+    "x": 10
 }
 
-# update関数：四角を移動する処理をする
+pyxel.init(200, 200)
+# character.pyxresファイルをロード(読み込み)
+pyxel.load("character.pyxres")
 def update():
-    rect_info["x"] = rect_info["x"] + 1
+    character_info["x"] = character_info["x"] + 1
 
-# draw関数：四角を描画する
 def draw():
-    # 背景色を黒にする
-    pyxel.cls(0)
-    # 四角を描画
-    pyxel.rect(rect_info["x"], rect_info["y"], rect_info["w"], rect_info["h"], rect_info["col"])
+    # 画面上の（character_info["x"], 10）の座標に、イメージバンクの0番目の画像のx＝０，　ｙ＝０の位置から、16x16ピクセルで表示
+    pyxel.blt(character_info["x"], 10, 0, 0, 0, 16, 16)
 
 pyxel.run(update, draw)
 
