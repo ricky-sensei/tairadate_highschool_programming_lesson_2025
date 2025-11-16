@@ -1,9 +1,20 @@
-import pyxel
-pyxel.init(120, 120)
+ricky = {
+    "名前": "リッキー",
+    "レベル": 1,
+    "ジョブ": "戦士",
+    "攻撃力": 100,
+    "防御力": 80,
+}
+gacky = {
+    "名前": "リッキー",
+    "レベル": 1,
+    "ジョブ": "僧侶",
+    "攻撃力": 200,
+    "防御力": 80,
+}
 
 
-def update():
-    pass
-def draw():
-    pass
-pyxel.run(update, draw)
+print("ガッキーのこうげき！")
+damage = gacky["攻撃力"] - ricky["防御力"]
+print("リッキーに"+ str(damage) + "のダメージ")
+

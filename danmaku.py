@@ -8,11 +8,18 @@ character = {
 }
 enemy = {
     "x": 120 / 2 - 16 / 2,
-    "y": 20
+    "y": 20,
+    "direction": 1
 }
 
+
 def update():
-    character["x"] = character["x"] + 1
+    enemy["x"] = enemy["x"] + enemy["direction"]
+    if enemy["x"] >= 120 - 16 or enemy["x"] <= 16:
+        enemy["direction"] = enemy["direction"] * -1
+
+
+        
 
 def draw():
     pyxel.cls(0)
