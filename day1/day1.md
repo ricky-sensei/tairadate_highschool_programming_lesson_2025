@@ -233,7 +233,7 @@ permalink: /day1/
     ```
     国語80点、数学50点、英語が70点として、この三教科の平均点を求めよ
     ```
-    <details open markdown="1">
+    <details markdown="1">
     <summary>解答例</summary>
     
     ```python

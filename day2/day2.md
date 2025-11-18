@@ -159,7 +159,7 @@ for i in range(100):
     print("LINEを送信")
 ```
 
-<details open markdown="1">
+<details markdown="1">
 <summary>　参考：i とか range とかって何なのよ</summary>
 このコードを動かしてみよう
 ```python
@@ -221,7 +221,7 @@ print("ゆるしてやろう")
 
 ここでもインデントが重要で、インデントされている2つの処理が繰り返し実行される処理、インデントされていない print("ゆるしてやろう") の部分は、繰り返し=while文が終了したあとに実行されることがわかる。
 
-<details open markdown="1>
+<details markdown="1>
 <summary>
 参考①True(トゥルー)とFalse(フォルス)
 </summary>
@@ -262,7 +262,7 @@ if (True == 1):
 ```
 </details>
 
-<details open markdown="1">
+<details markdown="1">
 <summary>参考②無限ループ</summary>
 ゲームが起動中にずーっと同じ処理を繰り返したい場合などによく使われる手法で、無限ループというのがある。たとえばこんなコード(実行する場合は、必ず近くに詳しい人がいるときにやってください。やりすぎるとパソコンに余計な負担をかけてしまうことがあります。)
 ```python
@@ -377,7 +377,7 @@ while True:
   </table>
 
 
-<details open markdown="1">
+<details markdown="1">
 <summary>解答例</summary>
 ```python
 name = input("お名前は？：")
@@ -402,7 +402,7 @@ int(数字に変更したい文字)
 <ヒント②>
 時間によって挨拶の内容を変える　＝　「もし」時間が◯時から◯時の間だったら・・・
 
-<details open markdown="1">
+<details markdown="1">
 <summary>解答例</summary>
 ```python
 name = input("お名前は？：")
