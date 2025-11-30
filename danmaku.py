@@ -14,9 +14,16 @@ enemy = {
 
 
 def update():
+    print()
     enemy["x"] = enemy["x"] + enemy["direction"]
     if enemy["x"] >= 120 - 16 or enemy["x"] <= 16:
         enemy["direction"] = enemy["direction"] * -1
+    
+    if pyxel.KEY_RIGHT == True:
+        character["x"] = character["x"] + 1
+        print("rifht")
+    elif pyxel.KEY_LEFT == True:
+        character["x"] = character["x"] - 1
 
 
         

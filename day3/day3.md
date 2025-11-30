@@ -307,7 +307,7 @@ pyxel editorは、pyxelのゲーム制作で必要になる画像や音楽を自
 - ### イメージバンク
   イメージバングは、ドット絵を入れておけるところ。一つのpyxresファイルにつき、3つの画像をいれることができるよ。
   - #### ドット絵（＝ピクセルアート）を書くコツ
-    桜井政博のゲームをつくるには「ドット絵の初歩的な話」
+    桜井政博のゲームをつくるには「ドット絵の初歩的な話」 <br>
     <iframe style="width: 50vw; height: calc(50vw * 0.75);" src="https://www.youtube.com/embed/-t2Y09ns0IY?si=ZbXgCSE0VshxJHcL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   <br>
 
@@ -408,7 +408,7 @@ pyxel.run(update, draw)
 ```
 できたら実行してみよう
 <br>
-![リッキーマン](img/リッキーマン.png)
+<img class="" src="./img/リッキーマン.png" style="width: 50%">
 <br>
 
 ## キャラクターを動かしてみよう。
@@ -432,6 +432,7 @@ pyxel.run(update, draw)
 
 プログラム実行中にキャラクターのステータスとか位置情報とかを変更するには、 **update**関数を使うんだったね。
 まず、update関数で変更する用の変数を辞書型で用意して、そのデータのなかからx座標の数値をupdate関数で変更するようにしよう。
+そして、draw関数でも、update関数の変更を反映させられるように、x軸の引数を１０に固定していたところを、 `character_info["x"]` としよう。
 
 ```python
 import pyxel
@@ -454,4 +455,64 @@ pyxel.run(update, draw)
 ```
 
 さて、どうなるか。
+<img class="" src="./img/move_character.gif" style="width: 50%">
+<br>
+こいつ。。。動くぞ１！
+
+## いろんな方向に動かしてみよう
+さっきは右方向に移動するだけだったので、 `character_info["x"]` を、１増やすだけだったけど、
+- 左に動かすには？
+- 上下に動かすには？
+- 斜めに動かすには？
+いろいろ考えてみよう。
+
+## ジャンプさせてみよう
+ジャンプするってことは、どういうことかを考えてみる
+- ジャンプし始めと、ジャンプし終わりは、スピードが早くて、高くなるにつれてゆっくりになる。
+- ジャンプした場所と同じ場所に戻ってきたら、地面があるので止まる
+
+<br>
+
+- ### ジャンプ機能を実装したコード
+  ```python
+  import pyxel
+  
+  character_info = {
+      "x": 10,
+      "y": 150,
+      "jump": 10,
+      "jump_status": False
+  }
+
+
+
+  pyxel.init(200, 200)
+  # character.pyxresファイルをロード(読み込み)
+  pyxel.load("character.pyxres")
+  def update():
+      if character_info["jump"] == 10:
+          if pyxel.btnp(pyxel.KEY_SPACE):
+              character_info["jump_status"] = True
+      
+      if character_info["jump_status"] == True:
+          character_info["y"] = character_info["y"] - character_info["jump"]
+          if character_info["y"] > 150:
+              character_info["y"] = 150
+              character_info["jump_status"] = False
+              character_info["jump"] = 10
+          else:
+              character_info["jump"] = character_info["jump"] - 1
+
+          
+
+  def draw():
+      pyxel.cls(0)
+      # 画面上の（10, 10）の座標に、イメージバンクの0番目の画像のx＝０，　ｙ＝０の位置から、16x16ピクセルで表示
+      pyxel.blt(character_info["x"], character_info["y"], 0, 0, 0, 16, 16)
+
+  pyxel.run(update, draw)
+
+  ```
+  <img class="" src="./img/jump.gif" style="width: 50%">
+
 
