@@ -351,13 +351,53 @@ pyxelの準備をしよう。
 移動の部分は敵キャラの移動の応用をすればいけそう。
 問題はキー入力の部分。pyxelでは、キーごとに変数名が決まっていて、キーが押されているときはその変数に`True`が入る（＝そうじゃないときはFalse）が入る。それを利用して<br>
 ```
-if キー== True:
+if キーが押されたかどうか== True:
     押されたときにやりたいこと
 ```
 って感じにすればOK。
+今回はキーボードの矢印キーを検知したいので、使うのはこの４つだけ
+<table>
+    <tr>
+        <td>
+          pyxel.KEY_RIGHT
+        </td>
+        <td>
+          右矢印
+        </td>
+    </tr>
+    <tr>
+        <td>
+          pyxel.KEY_LEFT
+        </td>
+        <td>
+          左矢印
+        </td>
+    </tr>
+    <tr>
+        <td>
+          pyxel.KEY_UP
+        </td>
+        <td>
+          上矢印
+        </td>
+    </tr>
+    <tr>
+        <td>
+          pyxel.KEY_DOWN
+        </td>
+        <td>
+          下矢印
+        </td>
+    </tr>
+</table>
+じゃあ、右矢印が 押されたときに、キャラクターを右（ｘ方向）に１移動するコードを書いてみよう
 
 ```python
-
+  if pyxel.btn(pyxel.KEY_RIGHT) == True:
+      character["x"] = character["x"] + 1
+      
+  elif pyxel.btn(pyxel.KEY_LEFT) == True:
+      character["x"] = character["x"] - 1
 ```
 
 
