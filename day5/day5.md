@@ -65,7 +65,7 @@ for i in character["tama"]:
     i[1] = i[1] - 1
 ```
 これで、ゲームっぽくなってきた！！
-<img class="" src="img/動く弾.gif" alt="動く弾" style="width: 50%">
+<img class="" src="img/move_bullet.gif" alt="動く弾" style="width: 50%">
 
 
 
