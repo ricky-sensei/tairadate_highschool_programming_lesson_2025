@@ -18,6 +18,11 @@ enemy = {
 
 def update():
     print(character["tama"])
+    
+    # 一番古い弾のデータをチェック
+    if len(character["tama"]) and  character["tama"][0][1] <= -16:
+        character["tama"].pop(0)
+
     enemy["x"] = enemy["x"] + enemy["direction"]
     if enemy["x"] >= 120 - 16 or enemy["x"] <= 16:
         enemy["direction"] = enemy["direction"] * -1
