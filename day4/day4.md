@@ -153,7 +153,7 @@ pyxelの準備をしよう。
     pyxel.run(update, draw)
     ```
     ん〜。。。<br>
-    <img class="" src="img/draw_character2.png" alt="" style="width:50%">
+    <img class="" src="img/draw_character2.png" alt="" style="width:50%"><br>
     。。。なんかズレてね？？
     <details>
     <summary>ど真ん中にする方法</summary>
@@ -251,7 +251,7 @@ pyxelの準備をしよう。
     **なんかのびたんだがｗｗｗｗ**
     ここでちょっとpyxleの描画＝イラストなどを表示する仕組みについて説明するよ
     draw関数というのを使ってキャラクターを表示しているけど、実はこの関数、すでにある絵に絵を書き足しているだけだから、キャラクターの位置を変えて絵を書き足していくと、さっきみたいなことになる。<br>
-    <img src="img/update_cycle.png" alt="" style="width:70%">
+    <img src="img/update_cycle.png" alt="" style="width:70%"><br>
     そこで、draw関数で絵を書き足す前に。一度画面をリセットして、キャラクターを描き直すと、キャラクターが移動しているように見える。
 
     `pyxle.cls(0)`という一文を加えることで、こんな感じで移動するアニメーションができるよ。ちなみに、0は0番目のカラーコード、つまり黒のこと。
