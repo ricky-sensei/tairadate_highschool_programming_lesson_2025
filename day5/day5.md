@@ -64,6 +64,7 @@ pyxel.run(update, draw)
 for i in character["tama"]:
     i[1] = i[1] - 1
 ```
+
 これで、ゲームっぽくなってきた！！
 <img class="" src="img/move_bullet.gif" alt="動く弾" style="width: 50%">
 # 弾を消そう
