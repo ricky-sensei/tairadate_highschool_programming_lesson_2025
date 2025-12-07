@@ -66,11 +66,11 @@ for i in character["tama"]:
 ```
 
 これで、ゲームっぽくなってきた！！
-<img class="" src="img/move_bullet.gif" alt="動く弾" style="width: 50%">
+<img class="" src="img/move_bullet.gif" alt="動く弾" style="width: 50%"><br>
 # 弾を消そう
 今ターミナルを見てみると、めちゃくちゃ文字が文字がたくさん出ていて、何がなんだかって感じになってる
 
-<img class="" src="img/full_bullet_list.gif" alt="full_bullet_list" style="width:50%">
+<img class="" src="img/full_bullet_list.gif" alt="full_bullet_list" style="width:50%"><br>
 
 うん、キモい。
 これは、update()関数の一番最初に
