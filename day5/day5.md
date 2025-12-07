@@ -64,9 +64,10 @@ pyxel.run(update, draw)
 for i in character["tama"]:
     i[1] = i[1] - 1
 ```
-
+<br>
 これで、ゲームっぽくなってきた！！
 <img class="" src="img/move_bullet.gif" alt="動く弾" style="width: 50%"><br>
+
 # 弾を消そう
 今ターミナルを見てみると、めちゃくちゃ文字が文字がたくさん出ていて、何がなんだかって感じになってる
 
