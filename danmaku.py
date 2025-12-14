@@ -4,9 +4,9 @@ pyxel.init(120, 120)
 pyxel.load("danmaku.pyxres")
 
 character = {
-    "x": 120 / 2 - 16 / 2,
-     "y": 90, 
-     "tama": []
+    "x": 120 / 2 - 16 / 2, 
+    "y": 90, 
+    "tama": []
 }
 enemy = {
     "x": 120 / 2 - 16 / 2,
@@ -14,13 +14,12 @@ enemy = {
     "direction": 1,
     "HP": 100
 }
+game = {
+    "status": True
+}
 
 
-a_x = character["tama"][i][0]
-        tama_y = character["tama"][i][1]
-        # 当たり判定：弾と敵の矩形が重なっているかチェック
-        if (
-           def update():
+def update():
     print(character["tama"])
 
     # 一番古い弾のデータをチェック
@@ -28,15 +27,22 @@ a_x = character["tama"][i][0]
         character["tama"].pop(0)
     # 敵に当たった弾を削除
     for i in range(len(character["tama"]) - 1, -1, -1):
-        tam tama_x < enemy["x"] + 16
+        tama_x = character["tama"][i][0]
+        tama_y = character["tama"][i][1]
+        # 当たり判定：弾と敵の矩形が重なっているかチェック
+        if (
+            tama_x < enemy["x"] + 16
             and tama_x + 16 > enemy["x"]
             and tama_y < enemy["y"] + 16
             and tama_y + 16 > enemy["y"]
         ):
             character["tama"].pop(i)
+            enemy["HP"] = enemy["HP"] - 10
+            if enemy["HP"] <= 0:
+                game["status"] = False
 
     enemy["x"] = enemy["x"] + enemy["direction"]
-    if enemy["x"] >= 120 - 16 or enemy["x"] <= 16:
+    if enemy["x"] >= 120 - 16 or enemy["x"] <= 0:
         enemy["direction"] = enemy["direction"] * -1
 
     if pyxel.btn(pyxel.KEY_RIGHT) == True:
@@ -54,11 +60,16 @@ a_x = character["tama"][i][0]
 
 def draw():
     pyxel.cls(0)
-    pyxel.blt(character["x"], character["y"], 0, 0, 0, 16, 16, 0)
-    pyxel.blt(enemy["x"], enemy["y"], 0, 16, 0, 16, 16, 0)
+    if game["status"] == True:
+        pyxel.cls(0)
+        pyxel.blt(character["x"], character["y"], 0, 0, 0, 16, 16, 0)
+        pyxel.blt(enemy["x"], enemy["y"], 0, 16, 0, 16, 16, 0)
+        pyxel.text(10, 10, f"enemy HP: {enemy["HP"]}", 7)
 
-    for i in character["tama"]:
-        pyxel.blt(i[0], i[1], 0, 32, 0, 16, 16, 0)
+        for i in character["tama"]:
+            pyxel.blt(i[0], i[1], 0, 32, 0, 16, 16, 0)
+    else:
+        pyxel.text(40, 50, "GAME CLEAR!", 7)
 
 
 pyxel.run(update, draw)

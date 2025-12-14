@@ -162,36 +162,42 @@ print(character["tama"])
     ```
     update関数の中身がバケモン担ってきたので、全体のコードを示しておきます。
     ```python
+
     def update():
-    print(character["tama"])
+        print(character["tama"])
 
-    # 一番古い弾のデータをチェック
-    if len(character["tama"]) and character["tama"][0][1] <= -16:
-        character["tama"].pop(0)
-    # 敵に当たった弾を削除
-    for i in range(len(character["tama"]) - 1, -1, -1):
-        tam tama_x < enemy["x"] + 16
-            and tama_x + 16 > enemy["x"]
-            and tama_y < enemy["y"] + 16
-            and tama_y + 16 > enemy["y"]
-        ):
-            character["tama"].pop(i)
+        # 一番古い弾のデータをチェック
+        if len(character["tama"]) and character["tama"][0][1] <= -16:
+            character["tama"].pop(0)
+        # 敵に当たった弾を削除
+        for i in range(len(character["tama"]) - 1, -1, -1):
+            tama_x = character["tama"][i][0]
+            tama_y = character["tama"][i][1]
+            # 当たり判定：弾と敵の矩形が重なっているかチェック
+            if (
+                tama_x < enemy["x"] + 16
+                and tama_x + 16 > enemy["x"]
+                and tama_y < enemy["y"] + 16
+                and tama_y + 16 > enemy["y"]
+            ):
+                character["tama"].pop(i)
 
-    enemy["x"] = enemy["x"] + enemy["direction"]
-    if enemy["x"] >= 120 - 16 or enemy["x"] <= 16:
-        enemy["direction"] = enemy["direction"] * -1
+        enemy["x"] = enemy["x"] + enemy["direction"]
+        if enemy["x"] >= 120 - 16 or enemy["x"] <= 16:
+            enemy["direction"] = enemy["direction"] * -1
 
-    if pyxel.btn(pyxel.KEY_RIGHT) == True:
-        character["x"] = character["x"] + 1
+        if pyxel.btn(pyxel.KEY_RIGHT) == True:
+            character["x"] = character["x"] + 1
 
-    elif pyxel.btn(pyxel.KEY_LEFT) == True:
-        character["x"] = character["x"] - 1
+        elif pyxel.btn(pyxel.KEY_LEFT) == True:
+            character["x"] = character["x"] - 1
 
-    if pyxel.btnp(pyxel.KEY_SPACE) == True:
-        character["tama"].append([character["x"], character["y"] - 16])
+        if pyxel.btnp(pyxel.KEY_SPACE) == True:
+            character["tama"].append([character["x"], character["y"] - 16])
 
-    for i in character["tama"]:
-        i[1] = i[1] - 1
+        for i in character["tama"]:
+            i[1] = i[1] - 1
+
 
     ```
 
@@ -209,6 +215,134 @@ print(character["tama"])
   }
   ```
   次に、そのＨＰを表示する処理を追加。表示を担当するdraw関数に、この一行を追加しよう
+  ```python
+  def draw():
+    pyxel.cls(0)
+    pyxel.blt(character["x"], character["y"], 0, 0, 0, 16, 16, 0)
+    pyxel.blt(enemy["x"], enemy["y"], 0, 16, 0, 16, 16, 0)
+    
+    # この１行を追加
+    pyxel.text(10, 10, f"enemy HP: {enemy["HP"]}", 7)
+
+    for i in character["tama"]:
+        pyxel.blt(i[0], i[1], 0, 32, 0, 16, 16, 0)
+  ```
+  <img class="" src="./img/screen_with_HP.png" alt="" style="width:50%"><br>
+
+  では、敵に当たったときにダメージが入る＝enemy["HP"]が減る処理を追加していこう。当たった弾を消す処理のところに書けば良さげ。
+  ```python
+  def update():
+    print(character["tama"])
+
+    # 一番古い弾のデータをチェック
+    if len(character["tama"]) and character["tama"][0][1] <= -16:
+        character["tama"].pop(0)
+    # 敵に当たった弾を削除
+    for i in range(len(character["tama"]) - 1, -1, -1):
+        tama_x = character["tama"][i][0]
+        tama_y = character["tama"][i][1]
+        # 当たり判定：弾と敵の矩形が重なっているかチェック
+        if (
+            tama_x < enemy["x"] + 16
+            and tama_x + 16 > enemy["x"]
+            and tama_y < enemy["y"] + 16
+            and tama_y + 16 > enemy["y"]
+        ):
+            character["tama"].pop(i)
+
+            # この一行を追加
+            enemy["HP"] = enemy["HP"] - 10
+
+            ＜以下略＞
+  ```
+
+  <img class="" src="./img/game_with_damage.gif" alt="" style="width: 50%"><br>
+
+  # クリア演出の追加
+  今のままだと敵のＨＰがマイナス担ってしまってゲームが終わらないので、ＨＰがゼロ以下になったら「GAME CLEAR!」の表示を出すようにしよう
+  
+  さて、何をどう判定してクリア表示にするかだけど
+  - ゲーム進行中は敵や味方の表示
+  - ゲームクリア時は「GAME CLEAR!」の文字
+  を表示したいわけなので、ゲームが進行中かどうかわかる変数を新しく追加しよう。
+  ゲーム進行中はgame["status"]をTrue, クリア時はFalseにする感じ
+  ```python
+  import pyxel
+
+  pyxel.init(120, 120)
+  pyxel.load("danmaku.pyxres")  
+  character = {
+      "x": 120 / 2 - 16 / 2, 
+      "y": 90, 
+      "tama": []
+  }
+  enemy = {
+      "x": 120 / 2 - 16 / 2,
+      "y": 20,
+      "direction": 1,
+      "HP": 100
+  }
+
+  # ここを追加
+  game = {
+      "status": True
+  }
+  ＜以下略＞
+  ```
+
+  敵のＨＰがゼロ以下になったときに、game["status"]をFalseにしよう。
+  ```python
+  def update():
+    print(character["tama"])
+
+    # 一番古い弾のデータをチェック
+    if len(character["tama"]) and character["tama"][0][1] <= -16:
+        character["tama"].pop(0)
+    # 敵に当たった弾を削除
+    for i in range(len(character["tama"]) - 1, -1, -1):
+        tama_x = character["tama"][i][0]
+        tama_y = character["tama"][i][1]
+        # 当たり判定：弾と敵の矩形が重なっているかチェック
+        if (
+            tama_x < enemy["x"] + 16
+            and tama_x + 16 > enemy["x"]
+            and tama_y < enemy["y"] + 16
+            and tama_y + 16 > enemy["y"]
+        ):
+            character["tama"].pop(i)
+            enemy["HP"] = enemy["HP"] - 10
+
+            # ここを追加
+            if enemy["HP"] <= 0:
+                game["status"] = False
+            <以下略>
+  ```
+  では、draw()関数を書き換え、game["status"]がTrueのときはキャラクターなどを表示して、そうじゃないときは GAME CLEAR!を表示するようにしよう
+  ```python
+  def draw():
+    pyxel.cls(0)
+    if game["status"] == True:
+        pyxel.cls(0)
+        pyxel.blt(character["x"], character["y"], 0, 0, 0, 16, 16, 0)
+        pyxel.blt(enemy["x"], enemy["y"], 0, 16, 0, 16, 16, 0)
+        pyxel.text(10, 10, f"enemy HP: {enemy["HP"]}", 7)
+
+        for i in character["tama"]:
+            pyxel.blt(i[0], i[1], 0, 32, 0, 16, 16, 0)
+    else:
+        pyxel.text(40, 50, "GAME CLEAR!", 7)
+  ```
+
+  <img class="" src="./img/game clear.gif" alt="" style="width: 50%"><br>
+
+
+# 音で演出しよう
+※今回はちょっと邪道な方法を使います
+
+
+
+
+
 
 
 
