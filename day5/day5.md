@@ -267,27 +267,27 @@ print(character["tama"])
   を表示したいわけなので、ゲームが進行中かどうかわかる変数を新しく追加しよう。
   ゲーム進行中はgame["status"]をTrue, クリア時はFalseにする感じ
   ```python
-  import pyxel
+    import pyxel
 
-  pyxel.init(120, 120)
-  pyxel.load("danmaku.pyxres")  
-  character = {
-      "x": 120 / 2 - 16 / 2, 
-      "y": 90, 
-      "tama": []
-  }
-  enemy = {
-      "x": 120 / 2 - 16 / 2,
-      "y": 20,
-      "direction": 1,
-      "HP": 100
-  }
+    pyxel.init(120, 120)
+    pyxel.load("danmaku.pyxres")  
+    character = {
+        "x": 120 / 2 - 16 / 2, 
+        "y": 90, 
+        "tama": []
+    }
+    enemy = {
+        "x": 120 / 2 - 16 / 2,
+        "y": 20,
+        "direction": 1,
+        "HP": 100
+    }
 
-  # ここを追加
-  game = {
-      "status": True
-  }
-  ＜以下略＞
+    # ここを追加
+    game = {
+        "status": True
+    }
+    ＜以下略＞
   ```
 
   敵のＨＰがゼロ以下になったときに、game["status"]をFalseにしよう。
