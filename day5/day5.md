@@ -124,7 +124,7 @@ print(character["tama"])
     ### みんな大好き数学の時間だぜ
     三平方の定理を思い出してみよう。
     こういう三角形をおいてみると、円の中心同士の距離がわかる
-    <br><img class="" src="./img/hit_detection3.png" alt="hit_detection3" style="width:70%"><br>
+    <br><img class="" src="{{ site.baseurl }}hit_detection3.png" alt="hit_detection3" style="width:70%"><br>
     ？の部分を求めるには
     ```
     ？の２乗 ＝ ４の２乗 ｘ ３の２乗

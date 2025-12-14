@@ -1,5 +1,7 @@
 # JekyllのMarkdownパーサーとしてkramdownを使用
 markdown: kramdown
+# ベースURLの設定（GitHub Pagesの場合、リポジトリ名を指定）
+baseurl: "/tairadate_highschool_programming_lesson_2025"  # リポジトリ名に合わせて変更
 
 # kramdownの設定: GFM（GitHub Flavored Markdown）を有効にする
 kramdown:
