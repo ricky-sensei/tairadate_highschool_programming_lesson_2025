@@ -56,7 +56,7 @@ def draw():
     
 pyxel.run(update, draw)
 ```
-<img class="" src="img/Animation5.gif" alt="" style="width:50%">
+<br><img class="" src="img/Animation5.gif" alt="" style="width:50%">
 
 弾を動かすために、[tama]の中にある弾丸を、ｙ方向に１づつ移動させよう。この処理をupdate関数の中に追加します
 
@@ -65,11 +65,11 @@ for i in character["tama"]:
     i[1] = i[1] - 1
 ```
 これで、ゲームっぽくなってきた！！
-<img class="" src="img/move_bullet.gif" alt="動く弾" style="width: 50%">
+<br><img class="" src="img/move_bullet.gif" alt="動く弾" style="width: 50%">
 # 弾を消そう
 今ターミナルを見てみると、めちゃくちゃ文字が文字がたくさん出ていて、何がなんだかって感じになってる
 
-<img class="" src="img/full_bullet_list.gif" alt="full_bullet_list" style="width:50%">
+<br><img class="" src="img/full_bullet_list.gif" alt="full_bullet_list" style="width:50%">
 
 うん、キモい。
 これは、update()関数の一番最初に
@@ -92,7 +92,7 @@ print(character["tama"])
     つまり、tamaリストの中から、ｙ軸の数字が -16 以下になっているやつを探して、そいつを削除すればいいわけだ。
     ### リスト性質：先入れ先出し
     tamaリストは、pythonのデータ型の一つ、「リスト」というデータになっている。データを纏めて保存するのに便利な型なんだけど、いくつか特徴がある <br>
-    <img class="" src="img/list_index.png" alt="list_index" stype="width:30%"><br>
+    <br><img class="" src="img/list_index.png" alt="list_index" stype="width:30%"><br>
     今回の場合、右側（後ろの方）にデータを追加していってるので、一番古いデータは一番左になる。
     pyxelは毎フレームごとに処理を実行するわけだから、例えば同じフレームで弾が２発打ててしまうことはあり得ない。つまり、毎回tamaリストにある全部の座標をチェックする必要はなくて、一番古いデータをチェックして、座標が-16以下になっていればそれを消す、って感じでOKなわけ。それを実装すると、こんな感じになる
 
@@ -104,7 +104,7 @@ print(character["tama"])
     `pop`ていうのがリストから消す働きをしているんだけど、リストの詳しいことなどは今回は深く突っ込まないので、気になる人はリッキーたちに聞いてくれ♪
     <br>
     弾が消えてるかどうか、実行して確認してみよう
-    <img class="" src="img/bullet_delete_1.gif" alt="bullet_delete_1" style="width:50%">
+    <br><img class="" src="img/bullet_delete_1.gif" alt="bullet_delete_1" style="width:50%">
     これでおｋ！
 
   - # 敵に当たった弾を消す
@@ -114,15 +114,15 @@ print(character["tama"])
     いろいろな方法があるけど、今回はそのうちの一つを紹介します。
     <br>
     ちょっと考えてみよう。半径２センチの円と、３センチの円があったとしよう。この２つが当たっているかどうかを判定する条件はなんだろう？
-    <img class="" src="img/hit_detection1.png" alt="hit_detection1" style="width:70%">
+    <br><img class="" src="img/hit_detection1.png" alt="hit_detection1" style="width:70%">
     そう、中心同士の距離が２＋３＝４センチ以下かどうか、だよね。
-    そのとおりなんだけど、pyxelの画面では、こんな感じのｘ座標、ｙ座標で、キャラクターや物体の場所が表される。この２つが当たってるかどうか、どうやって判定する？
-    <img class="" src="img/hit_detection2.png" alt="hit_detection1" style="width:70%">
+    そのとおりなんだけど、pyxelの画面では、こんな感じのｘ座標、ｙ座標で、キャラクターや物体の場所が表される。この２つが当たってるかどうか、どうやって判定する？<br>
+    <br><img class="" src="img/hit_detection2.png" alt="hit_detection1" style="width:70%">
 
     ### みんな大好き数学の時間だぜ
     三平方の定理を思い出してみよう。
     こういう三角形をおいてみると、円の中心同士の距離がわかる
-    <img class="" src="img/hit_detection3.png" alt="hit_detection1" style="width:70%">
+    <br><img class="" src="img/hit_detection3.png" alt="hit_detection1" style="width:70%">
     ？の部分を求めるには
     ```
     ？の２乗 ＝ ４の２乗 ｘ ３の２乗
