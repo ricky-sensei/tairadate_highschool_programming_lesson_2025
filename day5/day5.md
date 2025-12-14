@@ -336,8 +336,7 @@ print(character["tama"])
   <img class="" src="./img/game clear.gif" alt="" style="width: 50%"><br>
 
 
-# 音で演出しよう
-※今回はちょっと邪道な方法を使います
+
 
 
 
