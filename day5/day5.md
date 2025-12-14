@@ -113,7 +113,11 @@ print(character["tama"])
     さて、この仕組みを考えよう
     ### 当たり判定 
     格ゲーとかシューティングゲームにおいて、このあたり判定がうまく調整されているかどうかは、そのゲームが神ゲーになるかクソゲーになるかの大きな決め手。
-    いろいろな方法があるけど、今回はそのうちの一つを紹介します。
+    いろいろな方法があるけど、今回はその考え方うちの一つを紹介します。
+    <details markdown="1">
+    <summary>　本来の当たり判定の考え方
+    </summary>
+    
     <br>
     ちょっと考えてみよう。半径２センチの円と、３センチの円があったとしよう。この２つが当たっているかどうかを判定する条件はなんだろう？
     <br><img class="" src="./img/hit_detection1.png" alt="hit_detection1" style="width:70%"><br>
@@ -123,9 +127,9 @@ print(character["tama"])
 
     ### みんな大好き数学の時間だぜ
     三平方の定理を思い出してみよう。
-    こういう三角形をおいてみると、円の中心同士の距離がわかる
+    こういう直角三角形をおいてみると、円の中心同士の距離がわかる
     <br>
-    <img class="" src="./img/hit_detection3.png" alt="aaa">
+    <img class="" src="./img/hit_detection3.png" alt="aaa" style="width=50%">
     <br>
     ？の部分を求めるには
     ```
@@ -137,12 +141,75 @@ print(character["tama"])
     当たり判定について、ストリートファイター開発者の人がより詳しいことを解説しているので、読んでみて
     [ストゼミ：当たり判定の基本](https://game.capcom.com/cfn/sfv/column/130393)
 
-    <br>
-    さてさて、では実装してみよう。。。と行きたいところだけど、今回はコピペでゆるしてやろう（謎の上から目線）
+    みんなが「なんだよこのクソゲー当たり判定ザルかよｗｗ金返せ！！」って言ってる裏では、プログラマーのいろんな工夫や努力があるわけです
+    </details>
+    
+    今回は弾が長方形で、ちゃんとやると、もうちょっと大変になる。なので、今回は単純に弾の四角が敵に重なってるかどうかで判定します。
+    該当部分のコードはこんな感じ。
+    ```python
+    # 敵に当たった弾を削除
+    for i in range(len(character["tama"]) - 1, -1, -1):
+        tama_x = character["tama"][i][0]
+        tama_y = character["tama"][i][1]
+        # 当たり判定：弾と敵の矩形が重なっているかチェック
+        if (
+            tama_x < enemy["x"] + 16
+            and tama_x + 16 > enemy["x"]
+            and tama_y < enemy["y"] + 16
+            and tama_y + 16 > enemy["y"]
+        ):
+            character["tama"].pop(i)
+    ```
+    update関数の中身がバケモン担ってきたので、全体のコードを示しておきます。
+    ```python
+    def update():
+    print(character["tama"])
 
-    あれ？当たり判定おかしくね？ってなった人、なんでだかわかる？
-    今回、弾の形がめっちゃ細長いよね。これだと、中心同士の距離で当たり判定をつけると、こんな感じになる。
-    みんなが「なんだよこのクソゲー金返せ！」って言っている裏では、こういうところでプログラマーさんが血の滲む努力をしていたりするわけです。。。
+    # 一番古い弾のデータをチェック
+    if len(character["tama"]) and character["tama"][0][1] <= -16:
+        character["tama"].pop(0)
+    # 敵に当たった弾を削除
+    for i in range(len(character["tama"]) - 1, -1, -1):
+        tam tama_x < enemy["x"] + 16
+            and tama_x + 16 > enemy["x"]
+            and tama_y < enemy["y"] + 16
+            and tama_y + 16 > enemy["y"]
+        ):
+            character["tama"].pop(i)
+
+    enemy["x"] = enemy["x"] + enemy["direction"]
+    if enemy["x"] >= 120 - 16 or enemy["x"] <= 16:
+        enemy["direction"] = enemy["direction"] * -1
+
+    if pyxel.btn(pyxel.KEY_RIGHT) == True:
+        character["x"] = character["x"] + 1
+
+    elif pyxel.btn(pyxel.KEY_LEFT) == True:
+        character["x"] = character["x"] - 1
+
+    if pyxel.btnp(pyxel.KEY_SPACE) == True:
+        character["tama"].append([character["x"], character["y"] - 16])
+
+    for i in character["tama"]:
+        i[1] = i[1] - 1
+
+    ```
+
+# 敵ＨＰ・ダメージ、クリア画面の実装
+このままではゲームが終わらないので、敵のＨＰがゼロになったらゲームクリア、という感じに実装してみよう
+
+- ## ＨＰの実装と表示
+  まずは敵(enemy)キャラにＨＰをもたせよう。enemyの辞書型に「ＨＰ」を追加。ＨＰを１００にしてみよう
+  ```python
+  enemy = {
+      "x": 120 / 2 - 16 / 2,
+      "y": 20,
+      "direction": 1,
+      "HP": 100
+  }
+  ```
+  次に、そのＨＰを表示する処理を追加。表示を担当するdraw関数に、この一行を追加しよう
+
 
 
 
